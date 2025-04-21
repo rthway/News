@@ -1,0 +1,222 @@
+/*
+Theme Name: Bihani
+Theme URI: https://yourwebsite.com/bihani
+Author: Roshan Kumar Thapa
+Author URI: https://rosanthapa.com.np
+Description: Bihani is a modern, responsive WordPress theme for news, blog, and magazine websites.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bihani
+Tags: news, blog, responsive, bootstrap, magazine
+*/
+
+
+
+
+/* ===============================
+   General Header Styles
+================================== */
+/* Apply Poppins font globally */
+/* Apply Mukta font globally across the website */
+body, h1, h2, h3, h4, h5, h6, p, a, span, div {
+    font-family: 'Mukta', sans-serif !important;
+}
+
+
+/* 
+==============================
+NAVBAR
+============================== 
+*/
+/* Styling for the entire navbar */
+.custom-navbar {
+    background-color: #007bff; /* Set a blue background for the navbar */
+}
+
+/* Styling individual navigation links */
+.custom-navbar .navbar-nav .nav-link {
+    color: white; /* White text for links */
+    font-weight: bold; /* Make the links bold */
+    padding: 0.75rem 1rem; /* Add vertical and horizontal padding */
+}
+
+/* Change link color on hover */
+.custom-navbar .navbar-nav .nav-link:hover {
+    color: #f8f9fa;
+     /* Light color for better contrast on hover */
+}
+
+/* Styling for the brand name in the navbar */
+.custom-navbar .navbar-brand {
+    color: white; /* White text for the brand */
+    font-weight: bold; /* Bold font to highlight the brand */
+}
+
+/* Customize the navbar toggle icon color */
+.custom-navbar .navbar-toggler-icon {
+    color: white;
+    background-color: #fff; /* White color to ensure visibility */
+    
+}
+
+/* Button styling inside the navbar */
+.custom-navbar .btn-outline-light,
+.custom-navbar .btn-outline-danger {
+    color: white; /* White text color */
+    font-weight: bold; /* Bold font for button text */
+    border-color: white; /* White border for outline effect */
+    padding: 0.5rem 1rem;
+    /* Adjust padding for buttons */
+}
+
+/* Hover effects for buttons */
+.custom-navbar .btn-outline-light:hover,
+.custom-navbar .btn-outline-danger:hover {
+    background-color: white; /* Button turns white on hover */
+    color: #007bff; /* Text turns blue for light button */
+}
+
+.custom-navbar .btn-outline-danger:hover {
+    color: red; /* Danger button turns red on hover */
+}
+
+/* Add spacing between icons and text in buttons */
+.custom-navbar .btn .fas {
+    margin-right: 5px; /* Create space between icon and text */
+}
+
+/* Custom styles for the mobile nav button */
+.navbar-toggler {
+    background-color: transparent; /* Set background to transparent */
+    border: 1px; /* Remove border */
+}
+
+.navbar-toggler:focus {
+    outline: none; /* Remove focus outline */
+}
+
+/* Change the color of the toggle icon to white */
+
+.navbar-toggler-icon {
+    /* background-image: url('/assets/img/menu.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+}
+
+.navbar-toggler:before {
+    content: '';
+    display: block;
+    width: 30px; /* Adjust width */
+    height: 2px; /* Adjust height */
+    background-color: white; /* Change to white */
+    margin: 6px 0; /* Space between bars */
+}
+
+.navbar-toggler:after {
+    content: '';
+    display: block;
+    width: 30px; /* Adjust width */
+    height: 2px; /* Adjust height */
+    background-color: white; /* Change to white */
+    margin: 6px 0; /* Space between bars */
+}
+
+.navbar-toggler:before, .navbar-toggler:after {
+    background-color: white; /* Set the color of the bars */
+}
+/* 
+=======================================================
+Responsive Adjustments for Navbar 
+=======================================================
+*/
+
+/* Align menu items to center on smaller screens */
+@media (max-width: 991px) {
+    .custom-navbar .navbar-nav {
+        text-align: center; /* Center-align menu items */
+    }
+    
+    .custom-navbar .navbar-nav .nav-item {
+        margin-bottom: 1rem;
+        text-decoration: none; /* Add space between items */
+    }
+}
+
+/* Styling the main menu links */
+.navbar-nav .nav-link {
+    font-size: 29px; /* Adjust font size for readability */
+    font-weight: 500; /* Optional: semi-bold style */
+    
+
+}
+
+
+
+/* 
+=======================================================
+Menu link styles
+=======================================================
+*/
+
+
+
+/* Stronger specificity targeting links inside your custom menu */
+ul.custom-menu li a {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    padding: 10px !important;
+    text-decoration: none !important;
+    font-size: large !important;
+}
+
+
+/* 
+=======================================================
+Featured post styles
+=======================================================
+*/
+
+
+.featured-post {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.post-title a {
+    text-decoration: none;
+    color: #323ca8;
+    font-size: 1.5em;
+}
+.post-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+.post-thumbnail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.post-content {
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #007BFF;
+    text-decoration: none;
+}
+.read-more:hover {
+    text-decoration: underline;
+}
