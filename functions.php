@@ -351,3 +351,49 @@ function custom_login_logo_title() {
 }
 add_filter('login_headertext', 'custom_login_logo_title');
 
+
+
+
+
+
+// ==========================
+// compress uploaded image
+// ==========================
+function compress_uploaded_image($file) {
+    $image_mime = $file['type'];
+    $image_path = $file['tmp_name'];
+    $image_ext  = pathinfo($file['name'], PATHINFO_EXTENSION);
+
+    $quality = 75; // Set your desired compression quality (0-100)
+
+    switch ($image_mime) {
+        case 'image/jpeg':
+        case 'image/jpg':
+            $image = imagecreatefromjpeg($image_path);
+            imagejpeg($image, $image_path, $quality);
+            imagedestroy($image);
+            break;
+
+        case 'image/png':
+            $image = imagecreatefrompng($image_path);
+            // Convert to palette-based PNG (smaller)
+            imagetruecolortopalette($image, true, 256);
+            imagepng($image, $image_path, 9); // 0 (no compression) to 9
+            imagedestroy($image);
+            break;
+
+        case 'image/webp':
+            $image = imagecreatefromwebp($image_path);
+            imagewebp($image, $image_path, $quality);
+            imagedestroy($image);
+            break;
+
+        default:
+            // Unsupported type (GIF, SVG, etc.) - do nothing
+            break;
+    }
+
+    return $file;
+}
+add_filter('wp_handle_upload_prefilter', 'compress_uploaded_image');
+
