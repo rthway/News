@@ -217,3 +217,137 @@ function bihani_customize_register($wp_customize) {
     }
 }
 add_action('customize_register', 'bihani_customize_register');
+
+
+
+
+
+// ==========================
+// Change the WordPress login 
+
+// ==========================
+// Custom WordPress login page with modern and creative design
+function custom_modern_login_style() {
+    $custom_logo_id = get_theme_mod('custom_logo');
+    $logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
+    $background_image = get_template_directory_uri() . '/assets/img/login-bg.jpg';
+    ?>
+    <style>
+        /* Full page background */
+        body.login {
+            margin: 0;
+            padding: 0;
+            background: url('<?php echo esc_url($background_image); ?>') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Login card */
+        #login {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        /* Logo */
+        #login h1 a {
+            background-image: url('<?php echo esc_url($logo_url); ?>');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 180px;
+            height: 80px;
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        /* Form styling */
+        .login form {
+            background: none;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+        }
+
+        .login form .input, .login input[type="text"], .login input[type="password"] {
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            padding: 12px 15px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .login form .input:focus {
+            border-color: #1d4ed8;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.3);
+            outline: none;
+        }
+
+        .wp-core-ui .button-primary {
+            background-color: #1d4ed8;
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 16px;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .wp-core-ui .button-primary:hover {
+            background-color: #2563eb;
+        }
+
+        /* Links below the form */
+        .login #nav, .login #backtoblog {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .login #nav a, .login #backtoblog a {
+            color: #1e40af;
+            transition: color 0.3s ease;
+        }
+
+        .login #nav a:hover, .login #backtoblog a:hover {
+            color: #3b82f6;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <?php
+}
+add_action('login_enqueue_scripts', 'custom_modern_login_style');
+
+// Set logo URL to site home
+function custom_login_logo_url() {
+    return home_url();
+}
+add_filter('login_headerurl', 'custom_login_logo_url');
+
+// Set logo hover title
+function custom_login_logo_title() {
+    return get_bloginfo('name');
+}
+add_filter('login_headertext', 'custom_login_logo_title');
+
