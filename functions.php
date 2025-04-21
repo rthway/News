@@ -399,3 +399,31 @@ function compress_uploaded_image($file) {
 }
 add_filter('wp_handle_upload_prefilter', 'compress_uploaded_image');
 
+// ==========================
+// Register Sidebar
+// ==========================
+// Register Sidebar Widget Area
+function bihani_register_sidebar() {
+    register_sidebar( array(
+        'name'          => 'Main Sidebar',
+        'id'            => 'main_sidebar',
+        'before_widget' => '<div class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'bihani_register_sidebar' );
+
+
+
+
+// ==========================
+// Load all custom widgets from /inc/widgets directory
+// ==========================
+// Load all custom widgets from /inc/widgets directory
+add_action('widgets_init', 'bihani_load_custom_widgets');
+function bihani_load_custom_widgets() {
+    require_once get_template_directory() . '/inc/widgets/trending-widget.php';
+}
+add_action('widgets_init', 'bihani_load_custom_widgets');

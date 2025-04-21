@@ -14,7 +14,8 @@
                 <!-- Author, Date & Text Size -->
                 <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
                     <div class="text-muted">
-                        By <?php the_author(); ?> | <?php echo get_the_date(); ?>
+                        <i class="fa fa-user-circle"></i>
+                        <?php the_author(); ?> | <i class="fa fa-clock-o"></i><?php echo get_the_date(); ?>
                     </div>
                     <div class="text-size-options">
                         <span class="me-2">Text Size:</span>
@@ -38,12 +39,12 @@
 
                 <!-- Related News -->
                 <div class="related-news mt-5">
-                    <h3 class="mb-4 border-bottom pb-2">Related News</h3>
+                    <h3 class="mb-4 border-bottom pb-2">सम्बन्धित खबर</h3>
                     <div class="row">
                         <?php
                         $related = new WP_Query([
                             'category__in'   => wp_get_post_categories($post->ID),
-                            'posts_per_page' => 3,
+                            'posts_per_page' => 6,
                             'post__not_in'   => [$post->ID]
                         ]);
 
@@ -69,9 +70,16 @@
         </div>
 
         <!-- Sidebar (4 columns) -->
-        <div class="col-lg-4">
-            <?php get_sidebar(); ?>
+<div class="col-lg-4">
+    <?php if ( is_active_sidebar( 'main_sidebar' ) ) : ?>
+        <div id="sidebar" class="widget-area">
+            <?php dynamic_sidebar( 'main_sidebar' ); ?>
         </div>
+    <?php else : ?>
+        <p>No widgets found. Please add widgets from the WordPress admin panel.</p>
+    <?php endif; ?>
+</div>
+
 
     </div>
 </div>
