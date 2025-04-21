@@ -55,6 +55,11 @@ endif;
 
 
 
+<hr>
+
+<?php
+get_template_part('category', 'politics'); // Include the politics category template
+?>
 
 </main>
 <?php get_footer(); ?>
