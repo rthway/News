@@ -61,7 +61,7 @@ endif;
 get_template_part('category', 'politics'); // Include the politics category template
 ?>
 <?php
-get_template_part('category-interview'); // Include the politics category template
+get_template_part('category-science'); // Include the politics category template
 ?>
 <?php
 get_template_part('category-health'); // Include the politics category template
