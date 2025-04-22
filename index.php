@@ -4,7 +4,7 @@
 <?php
 $args = array(
     'post_type'      => 'post',
-    'posts_per_page' => 3,
+    'posts_per_page' => 1,
     'meta_key'       => '_bihani_featured_post',
     'meta_value'     => 'yes',
 );
@@ -62,7 +62,7 @@ get_template_part('category', 'politics'); // Include the politics category temp
 ?>
 
 <?php
-// get_template_part('category-rajniti-block'); // Include the politics category template
+get_template_part('category-health'); // Include the politics category template
 ?>
 
 

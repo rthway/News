@@ -65,7 +65,7 @@ $category_link = get_category_link(get_category_by_slug($category_slug));
                   <?php the_title(); ?>
                 </a>
               </h6>
-              <p class="text-muted small mb-2"><?php echo wp_trim_words(get_the_excerpt(), 10); ?></p>
+              
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ $category_link = get_category_link(get_category_by_slug($category_slug));
 <style>
 /* ==== Politics Block Optimized CSS ==== */
 .politics-block h2 {
-  font-size: 28px;
+  font-size: 2em;
   font-weight: 600;
   color: #0d6efd;
   margin: 0;
@@ -91,13 +91,13 @@ $category_link = get_category_link(get_category_by_slug($category_slug));
 
 .politics-block .card h3,
 .politics-block .card h6 {
-  font-size: 20px;
+  font-size: 1.5em;
   font-weight: 600;
   color: #212529;
 }
 
 .politics-block .card p {
-  font-size: 15px;
+  font-size: 1.2em;
   line-height: 1.6;
   color: #6c757d;
 }

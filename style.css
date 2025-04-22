@@ -230,7 +230,7 @@ Economy Section Styles
 =======================================================
 */
 .economic-title {
-    font-size: 28px;
+    font-size: 2em;
     font-weight: 700;
     color: #0056b3;
     margin-bottom: 20px;
@@ -263,7 +263,7 @@ Economy Section Styles
   }
   
   .economic-post-title {
-    font-size: 20px;
+    font-size: 1.5em;
     color: #111 !important;
     text-decoration: none;
   }
