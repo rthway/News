@@ -151,6 +151,7 @@
                         'items_wrap' => '%3$s', // Output only <li> elements
                         // 'menu_class' => 'custom-menu-class',
                         'depth' => 2, // Allow sub-menu items
+                        'walker' => new Bootstrap_NavWalker()
 
                     ));
                     ?>

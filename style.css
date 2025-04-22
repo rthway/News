@@ -128,6 +128,25 @@ NAVBAR
 .navbar-toggler:before, .navbar-toggler:after {
     background-color: white; /* Set the color of the bars */
 }
+
+/* Submenu container (dropdown menu) */
+.navbar-nav .dropdown-menu {
+    background-color: white !important; /* No background */
+    border: none; /* Optional: remove border */
+    box-shadow: none; /* Optional: remove shadow */
+}
+
+/* Submenu item links */
+.navbar-nav .dropdown-menu .dropdown-item {
+    color: blue !important; /* Make text blue */
+    background-color: transparent !important;
+}
+
+/* Submenu item hover effect */
+.navbar-nav .dropdown-menu .dropdown-item:hover {
+    color: darkblue !important;
+    background-color: rgba(0, 0, 255, 0.1); /* Light blue hover (optional) */
+}
 /* 
 =======================================================
 Responsive Adjustments for Navbar 

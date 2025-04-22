@@ -427,3 +427,62 @@ function bihani_load_custom_widgets() {
     require_once get_template_directory() . '/inc/widgets/trending-widget.php';
 }
 add_action('widgets_init', 'bihani_load_custom_widgets');
+
+
+// ==========================
+// Custom bootstrap nav walker for dropdown menus
+// ==========================
+class Bootstrap_NavWalker extends Walker_Nav_Menu {
+    function start_lvl( &$output, $depth = 0, $args = null ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
+    }
+
+    function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $classes[] = 'nav-item';
+
+        if (in_array('menu-item-has-children', $classes)) {
+            $classes[] = 'dropdown';
+        }
+
+        $class_names = join( ' ', array_filter( $classes ) );
+        $class_names = ' class="' . esc_attr( $class_names ) . '"';
+
+        $output .= "<li$class_names>";
+
+        $atts = array();
+        $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+        $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+        $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+        $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+
+        $atts['class'] = 'nav-link';
+        if ($depth === 0 && in_array('menu-item-has-children', $classes)) {
+            $atts['class'] .= ' dropdown-toggle';
+            $atts['data-bs-toggle'] = 'dropdown';
+        } elseif ($depth > 0) {
+            $atts['class'] = 'dropdown-item';
+        }
+
+        $attributes = '';
+        foreach ( $atts as $attr => $value ) {
+            if ( ! empty( $value ) ) {
+                $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+                $attributes .= " $attr=\"$value\"";
+            }
+        }
+
+        $title = apply_filters( 'the_title', $item->title, $item->ID );
+
+        $output .= "<a$attributes>$title</a>";
+    }
+
+    function end_el( &$output, $item, $depth = 0, $args = null ) {
+        $output .= "</li>\n";
+    }
+
+    function end_lvl( &$output, $depth = 0, $args = null ) {
+        $output .= "</ul>\n";
+    }
+}
