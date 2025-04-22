@@ -8,7 +8,7 @@ $category_link = get_category_link($category_obj);
   <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-2">
     <h2 class="m-0"><i class="bi bi-chat-left-text fs-3 me-2 text-primary"></i> <?php echo esc_html($category_slug); ?></h2>
     <a href="<?php echo esc_url($category_link); ?>" class="btn btn-outline-primary">
-      थप विचारहरू हेर्नुहोस्
+      थप  हेर्नुहोस्
     </a>
   </div>
 

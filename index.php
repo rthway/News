@@ -1,10 +1,12 @@
+
 <?php get_header(); ?>
 <main class="container py-5">
 
 <?php
+
 $args = array(
     'post_type'      => 'post',
-    'posts_per_page' => 1,
+    'posts_per_page' => 3,
     'meta_key'       => '_bihani_featured_post',
     'meta_value'     => 'yes',
 );
@@ -58,18 +60,41 @@ endif;
 <hr>
 
 <?php
-get_template_part('category', 'politics'); // Include the politics category template
+get_template_part('template-parts/category-politics'); 
 ?>
 <?php
-get_template_part('category-science'); // Include the politics category template
+// get_template_part('template-parts/category-economy'); 
 ?>
 <?php
-get_template_part('category-health'); // Include the politics category template
+get_template_part('template-parts/category-society'); 
+?>
+<?php
+get_template_part('template-parts/category-education'); 
+?>
+<?php
+get_template_part('template-parts/category-health'); 
+?>
+<?php
+get_template_part('template-parts/category-sports'); 
+?>
+<?php
+get_template_part('template-parts/category-science'); 
+?>
+<?php
+get_template_part('template-parts/category-world'); 
+?>
+<?php
+get_template_part('template-parts/category-lifestyle'); 
+?>
+<?php
+get_template_part('template-parts/category-blog'); 
 ?>
 
 <?php
-get_template_part('category-education-block'); // Include the politics category template
+get_template_part('template-parts/category-interview'); 
 ?>
+
+
 
 
 <!-- Main Content Section - first content block-->

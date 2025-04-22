@@ -12,42 +12,13 @@ $category_link = get_category_link($category_obj);
     </a>
   </div>
 
-  <!-- Carousel for top 3 featured posts -->
-  <div id="scienceTechCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <?php
-      $featured_posts = new WP_Query(array(
-        'category_name'  => $category_slug,
-        'posts_per_page' => 3,
-      ));
-      $first = true;
-      while ($featured_posts->have_posts()) : $featured_posts->the_post();
-      ?>
-        <div class="carousel-item <?php if ($first) { echo 'active'; $first = false; } ?>">
-          <a href="<?php the_permalink(); ?>">
-            <img src="<?php the_post_thumbnail_url('large'); ?>" class="d-block w-100 rounded shadow-sm" style="height: 400px; object-fit: cover;" alt="<?php the_title(); ?>">
-            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded px-3">
-              <h5><?php the_title(); ?></h5>
-              <p><?php echo wp_trim_words(get_the_excerpt(), 15); ?></p>
-            </div>
-          </a>
-        </div>
-      <?php endwhile; wp_reset_postdata(); ?>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#scienceTechCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#scienceTechCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
 
   <!-- Grid of other posts -->
   <div class="row g-4">
     <?php
     $grid_posts = new WP_Query(array(
       'category_name'  => $category_slug,
-      'posts_per_page' => 6,
+      'posts_per_page' => 3,
       'offset'         => 3,
     ));
     while ($grid_posts->have_posts()) : $grid_posts->the_post(); ?>
@@ -117,10 +88,3 @@ $category_link = get_category_link($category_obj);
   }
 }
 </style>
-<script>
-  // Initialize Bootstrap carousel
-  var myCarousel = document.querySelector('#scienceTechCarousel')
-  var carousel = new bootstrap.Carousel(myCarousel, {
-    interval: 5000,
-    wrap: true
-  })

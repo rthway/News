@@ -1,5 +1,6 @@
+
 <?php
-$category_slug = 'आर्थिक';
+$category_slug = 'राजनीति';
 $category = get_category_by_slug($category_slug);
 $category_link = get_category_link($category->term_id);
 ?>

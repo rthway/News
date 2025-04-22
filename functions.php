@@ -486,3 +486,35 @@ class Bootstrap_NavWalker extends Walker_Nav_Menu {
         $output .= "</ul>\n";
     }
 }
+
+
+// ==========================
+// Custom AJAX handler for loading category posts
+// ==========================
+add_action('wp_ajax_load_category_posts', 'load_category_posts');
+add_action('wp_ajax_nopriv_load_category_posts', 'load_category_posts');
+
+function load_category_posts() {
+  $cat_id = intval($_GET['cat_id']);
+  $query = new WP_Query([
+    'cat' => $cat_id,
+    'posts_per_page' => 5,
+  ]);
+  if ($query->have_posts()) :
+    while ($query->have_posts()) : $query->the_post(); ?>
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <?php if (has_post_thumbnail()) : ?>
+            <img src="<?php the_post_thumbnail_url('medium'); ?>" class="card-img-top" alt="">
+          <?php endif; ?>
+          <div class="card-body">
+            <h5 class="card-title"><?php the_title(); ?></h5>
+            <!-- <a href="<?php the_permalink(); ?>" class="btn btn-primary btn-sm">Read More</a> -->
+          </div>
+        </div>
+      </div>
+  <?php endwhile;
+    wp_reset_postdata();
+  endif;
+  wp_die();
+}

@@ -49,53 +49,22 @@ $category_link = get_category_link($category_obj);
     </div>
   </div>
 
-  <!-- List of remaining interviews -->
-  <div class="mt-4">
-    <?php
-    $interview_posts_list = new WP_Query(array(
-      'category_name'  => $category_slug,
-      'posts_per_page' => 4,
-      'offset'         => 5
-    ));
-
-    if ($interview_posts_list->have_posts()) :
-      while ($interview_posts_list->have_posts()) : $interview_posts_list->the_post(); ?>
-        <div class="d-flex border-bottom py-3">
-          <?php if (has_post_thumbnail()) : ?>
-            <a href="<?php the_permalink(); ?>" class="me-3" style="width: 140px;">
-              <img src="<?php the_post_thumbnail_url('medium'); ?>" class="img-fluid rounded object-fit-cover" alt="<?php the_title(); ?>">
-            </a>
-          <?php endif; ?>
-          <div>
-            <h6 class="mb-1">
-              <a href="<?php the_permalink(); ?>" class="text-dark text-decoration-none">
-                <?php the_title(); ?>
-              </a>
-            </h6>
-            <p class="text-muted small mb-0"><?php echo wp_trim_words(get_the_excerpt(), 18); ?></p>
-          </div>
-        </div>
-      <?php endwhile;
-      wp_reset_postdata();
-    endif;
-    ?>
-  </div>
 </div>
 <style>
 /* === Antarwbarta Block === */
 .antarwbarta-block h2 {
-  font-size: 28px;
+  font-size: 2em;
   font-weight: 700;
   color: #dc3545;
 }
 
 .antarwbarta-block .card h6 {
-  font-size: 18px;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
 .antarwbarta-block p {
-  font-size: 14px;
+  font-size: 1.2em;
   color: #6c757d;
 }
 

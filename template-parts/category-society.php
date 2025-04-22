@@ -1,5 +1,5 @@
 <?php
-$category_slug = 'राजनीति';
+$category_slug = 'समाज';
 $category_link = get_category_link(get_category_by_slug($category_slug));
 ?>
 
