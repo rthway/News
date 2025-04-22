@@ -60,9 +60,11 @@ endif;
 <?php
 get_template_part('category', 'politics'); // Include the politics category template
 ?>
-
 <?php
-// get_template_part('category-health'); // Include the politics category template
+get_template_part('category-society'); // Include the politics category template
+?>
+<?php
+get_template_part('category-health'); // Include the politics category template
 ?>
 
 <?php
