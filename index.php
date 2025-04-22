@@ -62,9 +62,12 @@ get_template_part('category', 'politics'); // Include the politics category temp
 ?>
 
 <?php
-get_template_part('category-health'); // Include the politics category template
+// get_template_part('category-health'); // Include the politics category template
 ?>
 
+<?php
+get_template_part('category-education-block'); // Include the politics category template
+?>
 
 
 <!-- Main Content Section - first content block-->
