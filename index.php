@@ -62,9 +62,7 @@ endif;
 <?php
 get_template_part('template-parts/category-politics'); 
 ?>
-<?php
-// get_template_part('template-parts/category-economy'); 
-?>
+
 <?php
 get_template_part('template-parts/category-society'); 
 ?>
@@ -78,7 +76,13 @@ get_template_part('template-parts/category-health');
 get_template_part('template-parts/category-sports'); 
 ?>
 <?php
+get_template_part('template-parts/catagory-entertainment'); 
+?>
+<?php
 get_template_part('template-parts/category-science'); 
+?>
+<?php
+get_template_part('template-parts/category-video'); 
 ?>
 <?php
 get_template_part('template-parts/category-world'); 
